@@ -1,0 +1,21 @@
+{
+  "model_type": "gpt2",
+  "vocab_size": 50257,
+  "n_positions": 4096,
+  "n_embd": 768,
+  "n_layer": 24,
+  "n_head": 16,
+  "n_inner": 3072,
+  "activation_function": "gelu_new",
+  "resid_pdrop": 0.1,
+  "embd_pdrop": 0.1,
+  "attn_pdrop": 0.1,
+  "layer_norm_epsilon": 1e-5,
+  "initializer_range": 0.02,
+  "summary_type": "cls_index",
+  "summary_use_proj": true,
+  "summary_activation": "tanh",
+  "summary_proj_to_labels": true,
+  "summary_first_dropout": 0.1,
+  "use_cache": true
+}
