@@ -1,0 +1,37 @@
+# 모델 설정
+model:
+  base_model: "microsoft/CodeGPT-small-py"
+  model_name: "world-class-programming-ai"
+  max_length: 4096
+  load_in_8bit: true
+  load_in_4bit: false
+
+# 학습 설정
+training:
+  num_train_epochs: 10
+  per_device_train_batch_size: 2
+  per_device_eval_batch_size: 2
+  gradient_accumulation_steps: 8
+  warmup_steps: 100
+  learning_rate: 2e-5
+  fp16: true
+  logging_steps: 10
+  save_steps: 500
+  eval_steps: 500
+  save_total_limit: 3
+
+# LORA 설정
+lora:
+  r: 16
+  lora_alpha: 32
+  lora_dropout: 0.05
+  target_modules: ["q_proj", "v_proj", "k_proj", "o_proj"]
+  bias: "none"
+  task_type: "CAUSAL_LM"
+
+# 데이터 설정
+data:
+  train_file: "data/processed/train.jsonl"
+  val_file: "data/processed/val.jsonl"
+  test_file: "data/processed/test.jsonl"
+  max_samples: 50000
